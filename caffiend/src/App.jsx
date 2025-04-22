@@ -5,7 +5,7 @@ import Layout from "./components/Layout";
 import Stats from "./components/Stats";
 
 function App() {
-  const isAuthenticated = true
+  const isAuthenticated = false
   const aunthenticatedContent = (
     <>
     <Stats/>
@@ -17,7 +17,7 @@ function App() {
 
    <Layout>
       <Hero/>
-      <CoffeeForm />
+      <CoffeeForm isAuthenticated={isAuthenticated}/>
       {isAuthenticated && (aunthenticatedContent) }
     </Layout>
        
