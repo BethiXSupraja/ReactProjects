@@ -2,6 +2,9 @@ import { coffeeOptions } from "../utils"
 import {useState} from 'react'
 import Modal from "./Modal"
 import Authentication from "./Authentication"
+import { useAuth } from "../Context/AuthContext"
+import { doc, setDoc } from "firebase/firestore"
+import { db } from "../../firebase"
 export default function CoffeeForm(props){
     const { isAuthenticated } = props
     const [showModal, setShowModal] = useState(false)
@@ -10,20 +13,61 @@ export default function CoffeeForm(props){
     const [coffeeCost, setCoffeeCost ] =useState(0)
     const[hour, setHour] = useState(0)
     const[min,setMin] =useState(0)
+
+    const { globalData, setGlobalData, globalUser } = useAuth()
     
 
-    function handleSubmitForm(){
+    async function handleSubmitForm(){
         if(!isAuthenticated){
             setShowModal(true)
             return
         }
-        console.log( selectedCoffee, coffeeCost, hour, min)
+        //define a guard clause that only submits the form if it is completed
+        if(!selectedCoffee){
+            return      
+        }
+        try{
+            //then we're going to create a new object
+            const newGlobalData ={
+                ...(globalData||{})
+            }
+            const nowTime = Date.now()
+            const timeToSubtract = (hour * 60 * 60 * 1000) + (min * 60 * 1000)
+            const timestamp = nowTime - timeToSubtract
+
+            const newData = {
+                name: selectedCoffee,
+                cost: coffeeCost
+            }
+            newGlobalData[timestamp] = newData
+            console.log(timestamp, selectedCoffee, coffeeCost)
+        
+        
+       //update the global state
+       setGlobalData(newGlobalData)
+
+        //persist the data in the firebase firestore
+        const userRef = doc( db, 'users', globalUser.uid)
+        const res = await setDoc( userRef,{
+            [timestamp]:newData
+        }, {merge: true})
+        
+        setSelectedCoffee(null)
+            setHour(0)
+            setMin(0)
+            setCoffeeCost(0)
+        } catch (err) {
+            console.log(err.message)
+    }
+ }
+    function handleCloseModal(){
+        setShowModal(fasle)
     }
     return(
         <>
          { showModal &&
-        (<Modal handleCloseModal={() => {setShowModal(false)} }>
-            <Authentication handleCloseModal={() => {setShowModal(false)}}
+        (<Modal handleCloseModal={handleCloseModal}>
+            <Authentication handleCloseModal={handleCloseModal}
             />
         </Modal>
         )}
