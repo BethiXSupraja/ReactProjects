@@ -1,4 +1,4 @@
-import { useAuth } from "./Context/AuthContext";
+import { useAuth } from "./context/AuthContext";
 import CoffeeForm from "./components/CoffeeForm";
 import Hero from "./components/Hero";
 import History from "./components/History";

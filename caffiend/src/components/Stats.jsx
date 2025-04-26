@@ -1,4 +1,4 @@
-import { useAuth } from "../Context/AuthContext"
+import { useAuth } from "../context/AuthContext"
 import { calculateCoffeeStats, calculateCurrentCaffeineLevel, coffeeConsumptionHistory, getTopThreeCoffees, statusLevels } from "../utils"
 
 function StatCard(props){
