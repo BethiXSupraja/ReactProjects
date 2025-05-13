@@ -1,8 +1,13 @@
-# React + Vite
+# TodoList React App - Project Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Introduction
 
-Currently, two official plugins are available:
+**React** is a JavaScript framework used predominantly to develop dynamic web apps. React works primarily with JavaScript and then HTML and CSS. This project uses **Vite.js** to initialize and build the React app.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🛠 Project Initialization
+
+```bash
+npm init vite@latest todo-app
+cd todo-app
+npm install
+npm run dev
