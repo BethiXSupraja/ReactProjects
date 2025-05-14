@@ -121,7 +121,7 @@ todo-app/
 *   Easy to modify and handle multiple tasks.
 *   Export components to be rendered as HTML-like tags in parent components.
 *   import { Header } from "./components/Header";
---
+---
 ### App.jsx
 
 *   Root component, maintains core state:
