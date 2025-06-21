@@ -20,28 +20,28 @@ The goal of this project is to explore **full-stack front-end development** and 
 
 ## Features
 
- **User Authentication**  
+### User Authentication
 Firebase Auth used to handle secure login, signup, logout, and session control.
 
-**Coffee Intake Form**  
+### Coffee Intake Form
 Users can add coffee type, time of intake, quantity, and other parameters.
 
-**Caffeine Stats**  
+### Caffeine Stats
 Visual stats of current caffeine level, top 3 coffees, and decay calculation.
 
-**History Log**  
+### History Log
 View all coffee entries with their caffeine levels and timestamps.
 
-**React Context API**  
+### React Context API
 Used for global authentication state management.
 
-**Utility-Based Logic**  
+### Utility-Based Logic
 Encapsulated functions to compute decay, top entries, and time since intake.
 
-**Custom CSS Styling**  
+### Custom CSS Styling  
 Crafted with `fanta.css` and `index.css` for a consistent and responsive design.
 
-**Responsive Layout**  
+### Responsive Layout
 Optimized for mobile, tablet, and desktop devices.
 
 ---
@@ -131,85 +131,165 @@ caffiend/
   ```
 
 ---
-
-### React Hooks Used
+### ⚛️ React Hooks Used
 
 **useState**  
-Used to manage:
-- Coffee input form fields
-- User context (in `AuthContext`)
-- Loading/error states
+```js
+const [user, setUser] = useState(null);
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [selectedCoffee, setSelectedCoffee] = useState(null);
+const [isRegistration, setIsRegistration] = useState(false);
+```
+*   Manages inputs, modals, login states, coffee form values, and authentication toggling.
 
 **useEffect**  
 ```js
 useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (user) => {
-    setUser(user);
-    setLoading(false);
+  const unsubscribe = onAuthStateChanged(auth, async (user) => {
+    setGlobalUser(user);
+    ...
   });
   return () => unsubscribe();
 }, []);
 ```
-Used to:
-- Listen to Firebase authentication changes
-- Initialize state from database or context
+*   Subscribes to Firebase auth state.
+*   Loads user data from Firestore into context.
 
 ---
 
-### Firebase Integration
+### 🔐 Firebase Integration
 
 **firebase.js**
 ```js
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  ...
-};
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const db = getFirestore(app);
 ```
 
-* Used for:
-  - `signInWithEmailAndPassword`
-  - `createUserWithEmailAndPassword`
-  - `signOut`
-  - `onAuthStateChanged`
+**Used for:**
+*   Authentication: `signInWithEmailAndPassword`, `createUserWithEmailAndPassword`, `signOut`, `onAuthStateChanged`
+*   Firestore database: `getDoc`, `setDoc`
 
 ---
 
-### AuthContext.jsx
+### 🔁 AuthContext.jsx
 
 **Purpose:**  
-Provides global access to authentication state.
+Global state management for user and coffee data.
 
 **Code:**
 ```js
 const AuthContext = createContext();
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+
+export function AuthProvider({ children }) {
+  const [globalUser, setGlobalUser] = useState(null);
+  const [globalData, setGlobalData] = useState(null);
   ...
-  return <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>;
-};
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
 ```
+
+*   Loads user data on login.
+*   Exposes auth functions and state via `useAuth()`.
 
 ---
 
-### Stats.jsx
+### ✏️ Authentication.jsx
 
-* Retrieves coffee entries from context or database
-* Computes caffeine level using:
+**Purpose:**  
+Login/signup modal with form validation and context auth.
+
+**Key Concepts:**
+*   Toggling between login & sign-up using `isRegistration`
+*   Input validation
+*   Firebase-based login/signup with feedback and error handling
+
+---
+
+### ☕ CoffeeForm.jsx
+
+**Purpose:**  
+Allows users to log new coffee entries.
+
+**Key Concepts:**
+*   Tracks coffee name, cost, and time since consumption
+*   Updates global state and Firestore
+*   Opens login modal if user isn't authenticated
+
+---
+
+### 👤 Hero.jsx
+
+**Purpose:**  
+Intro banner with features and caffeine trivia.
+
+**Highlights:**
+*   Uses `<abbr>` for tooltip info
+*   Explains caffeine tracking concept
+
+---
+
+### 📜 History.jsx
+
+**Purpose:**  
+Displays user's coffee log from global state.
+
+**Key Concepts:**
+*   Sorted by recent time
+*   Hover to see summary (time, cost, caffeine left)
+*   Uses: `calculateCurrentCaffeineLevel`, `timeSinceConsumption`
+
+---
+
+### 📊 Stats.jsx
+
+**Purpose:**  
+Displays caffeine level, cost, top coffees, and averages.
+
+**Key Concepts:**
+*   Caffeine half-life calculations
+*   `calculateCoffeeStats`, `getTopThreeCoffees`
+*   Dynamic style (e.g., status color) based on warning levels
+
+---
+
+### 🧱 Layout.jsx
+
+**Purpose:**  
+Wraps the app with `header`, `main`, and `footer`.
+
+**Key Concepts:**
+*   Shows login/logout based on `globalUser`
+*   Opens modal for login using `Authentication`
+*   Includes credit & GitHub links in footer
+
+---
+
+### 💬 Modal.jsx
+
+**Purpose:**  
+Reusable portal-based modal component.
+
+**Code:**
 ```js
-const halfLife = 5; // hours
-const decay = Math.pow(0.5, timeElapsed / halfLife);
+return ReactDOM.createPortal(
+  <div className='modal-container'>
+    <button onClick={handleCloseModal} className='modal-underlay'/>
+    <div className='modal-content'>{children}</div>
+  </div>,
+  document.getElementById('portal')
+);
 ```
-* Calls:
-  - `calculateCurrentCaffeine()`
-  - `getTopThreeCoffees()`
 
----
 
 ### Utility Functions
 
@@ -217,7 +297,7 @@ const decay = Math.pow(0.5, timeElapsed / halfLife);
 * `getCaffeineAmount(coffeeType)`
 * `getTopThreeCoffees(history)`
 * `timeSinceConsumption(timestamp)`
-
+* `calculateCoffeeStats(data)`
 ---
 
 ## Conclusion
