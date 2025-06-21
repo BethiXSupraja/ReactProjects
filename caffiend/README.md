@@ -1,73 +1,63 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage{hyperref}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{listings}
-\usepackage{xcolor}
-\usepackage{longtable}
+# ☕ Caffiend React App - Project Overview
 
-\geometry{margin=1in}
-\title{Caffiend React App - Project Report}
-\author{}
-\date{}
+## Introduction
 
-\definecolor{codegray}{gray}{0.95}
-\lstset{
-    backgroundcolor=\color{codegray},
-    basicstyle=\ttfamily\small,
-    frame=single,
-    breaklines=true,
-    captionpos=b,
-    showstringspaces=false
-}
+**Caffiend** is a caffeine tracking application that helps users monitor their coffee consumption. Built using **React**, **Firebase**, and **custom utilities**, the app enables authentication, entry of coffee intake data, and real-time stats on caffeine levels based on scientifically modeled half-life decay.
 
-\begin{document}
+---
 
-\maketitle
+## 🎯 Project Objective
 
-\section*{Introduction}
+The goal of this project is to explore **full-stack front-end development** and provide users with:
 
-\textbf{React} is a powerful JavaScript library used to build fast, interactive user interfaces. In this project, \textbf{Vite.js} is used to initialize and build the app for faster development cycles.
+- Secure login & authentication
+- Custom form-based caffeine tracking
+- Visual representation of caffeine levels
+- Context-based state sharing
+- Time-based calculations using React utilities
 
-\textbf{Caffiend} is a caffeine tracking application that helps users monitor their coffee consumption. Built using \textbf{React}, \textbf{Firebase}, and custom utilities, the app enables authentication, entry of coffee intake data, and real-time stats on caffeine levels based on scientifically modeled half-life decay.
+---
 
-\section*{🎯 Project Objective}
+## Features
 
-The aim of this project is to build a real-time, data-driven caffeine tracker using modern front-end development practices:
+ **User Authentication**  
+Firebase Auth used to handle secure login, signup, logout, and session control.
 
-\begin{itemize}
-    \item Secure login \& authentication
-    \item Component-based architecture
-    \item Context API for state management
-    \item Caffeine decay logic using half-life modeling
-    \item Responsive design using custom CSS
-\end{itemize}
+**Coffee Intake Form**  
+Users can add coffee type, time of intake, quantity, and other parameters.
 
-\section*{Features}
+**Caffeine Stats**  
+Visual stats of current caffeine level, top 3 coffees, and decay calculation.
 
-\begin{itemize}
-    \item \textbf{🔐 User Authentication:} Firebase Auth-based login, signup, logout.
-    \item \textbf{📝 Coffee Intake Form:} Input fields for coffee type, time, quantity.
-    \item \textbf{📊 Caffeine Stats:} Displays top 3 coffees, caffeine levels.
-    \item \textbf{🕒 History Log:} Past entries with timestamps \& levels.
-    \item \textbf{🧠 React Context API:} Global auth state via context.
-    \item \textbf{⚙️ Utility Logic:} Includes caffeine calculation functions.
-    \item \textbf{🎨 Custom CSS:} Styled with \texttt{fanta.css} and \texttt{index.css}.
-    \item \textbf{📱 Responsive Layout:} Supports mobile/tablet/desktop.
-\end{itemize}
+**History Log**  
+View all coffee entries with their caffeine levels and timestamps.
 
-\section*{Project Initialization}
-\begin{lstlisting}[language=bash]
-npm create vite@latest caffiend --template react
+**React Context API**  
+Used for global authentication state management.
+
+**Utility-Based Logic**  
+Encapsulated functions to compute decay, top entries, and time since intake.
+
+**Custom CSS Styling**  
+Crafted with `fanta.css` and `index.css` for a consistent and responsive design.
+
+**Responsive Layout**  
+Optimized for mobile, tablet, and desktop devices.
+
+---
+
+### Project Initialization
+
+```bash
+npm create vite@latest caffiend 
 cd caffiend
 npm install
 npm run dev
-\end{lstlisting}
+```
 
-\section*{Folder Structure}
-\begin{lstlisting}
+```
 caffiend/
+├── node_modules/
 ├── public/
 │   └── index.html
 ├── src/
@@ -87,53 +77,71 @@ caffiend/
 │   ├── fanta.css
 │   ├── index.css
 │   └── main.jsx
-├── firebase.js
 ├── .env
+├── .gitignore
+├── eslint.config.js
+├── firebase.js
 ├── index.html
+├── package.json
+├── package-lock.json
 ├── vite.config.js
-\end{lstlisting}
+└── README.md
+```
 
-\section*{Tech Stack}
+---
 
-\begin{longtable}{|l|l|}
-\hline
-\textbf{Category} & \textbf{Technology} \\
-\hline
-Frontend & React, JSX \\
-Build Tool & Vite.js \\
-Styling & CSS (\texttt{fanta.css}) \\
-State Management & React Context API \\
-Authentication & Firebase Auth \\
-Backend & Firebase Firestore \\
-\hline
-\end{longtable}
+## Tech Stack
 
-\section*{Component Breakdown}
+| Category     | Technology        |
+|--------------|-------------------|
+| Frontend     | React, JSX        |
+| Build Tool   | Vite.js           |
+| Styling      | CSS (`fanta.css`) |
+| State Mgmt   | React Context     |
+| Auth         | Firebase Auth     |
+| Backend      | Firebase Firestore|
 
-\begin{longtable}{|l|p{10cm}|}
-\hline
-\textbf{Component} & \textbf{Description} \\
-\hline
-App.jsx & Root component managing state, layout, and route control. \\
-Authentication.jsx & Handles login, signup, and user sessions. \\
-CoffeeForm.jsx & Takes user input on coffee intake. \\
-Stats.jsx & Shows caffeine levels and top drinks. \\
-History.jsx & Displays entry log and caffeine decay over time. \\
-Modal.jsx & Popup/modal display component. \\
-Hero.jsx & Homepage content and layout. \\
-Layout.jsx & Wraps content with header/footer. \\
-AuthContext.jsx & React Context provider for auth data. \\
-\hline
-\end{longtable}
+---
 
-\section*{React Hooks Used}
-\begin{itemize}
-    \item \textbf{useState:} Manage form input, error messages, context values.
-    \item \textbf{useEffect:} Load user authentication, initialize data from Firebase.
-\end{itemize}
+## Component Breakdown
 
-\begin{lstlisting}[language=JavaScript]
-// Firebase auth listener
+| Component            | Description                                                                 |
+|----------------------|-----------------------------------------------------------------------------|
+| `App.jsx`            | Root component managing route & app state                                   |
+| `Authentication.jsx` | Login/signup logic and authentication flows                                 |
+| `CoffeeForm.jsx`     | Form input for coffee type, time, amount                                    |
+| `Stats.jsx`          | Caffeine stats with live calculation logic                                  |
+| `History.jsx`        | Entry log viewer with timestamp-based decay                                 |
+| `Modal.jsx`          | Modal dialog used for confirmation or data entry                            |
+| `Hero.jsx`           | Landing page UI                                                             |
+| `Layout.jsx`         | Manages Header and Footer layout                                            |
+| `AuthContext.jsx`    | Global authentication context using `React.createContext()`                 |
+
+---
+
+### App.jsx
+
+* Root component that wraps all child routes.
+* Uses Firebase Auth listener to protect private routes.
+* Wraps context provider:
+  ```
+  <AuthProvider>
+    <AppRoutes />
+  </AuthProvider>
+  ```
+
+---
+
+### React Hooks Used
+
+**useState**  
+Used to manage:
+- Coffee input form fields
+- User context (in `AuthContext`)
+- Loading/error states
+
+**useEffect**  
+```js
 useEffect(() => {
   const unsubscribe = onAuthStateChanged(auth, (user) => {
     setUser(user);
@@ -141,12 +149,17 @@ useEffect(() => {
   });
   return () => unsubscribe();
 }, []);
-\end{lstlisting}
+```
+Used to:
+- Listen to Firebase authentication changes
+- Initialize state from database or context
 
-\section*{Firebase Integration}
+---
 
-\begin{lstlisting}[language=JavaScript]
-// firebase.js
+### Firebase Integration
+
+**firebase.js**
+```js
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
@@ -157,48 +170,91 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-\end{lstlisting}
+```
 
-\section*{Utility Functions}
+* Used for:
+  - `signInWithEmailAndPassword`
+  - `createUserWithEmailAndPassword`
+  - `signOut`
+  - `onAuthStateChanged`
 
-\begin{itemize}
-    \item \texttt{calculateCurrentCaffeine(history)}
-    \item \texttt{getCaffeineAmount(coffeeType)}
-    \item \texttt{getTopThreeCoffees(history)}
-    \item \texttt{timeSinceConsumption(timestamp)}
-\end{itemize}
+---
 
-\section*{Conclusion}
+### AuthContext.jsx
 
-The Caffiend App demonstrates practical skills in building a real-world, user-centric application with login capabilities, data visualization, and domain-based logic for caffeine tracking. It shows mastery of React, Firebase, hooks, and clean component organization.
+**Purpose:**  
+Provides global access to authentication state.
 
-\section*{Key Learnings}
+**Code:**
+```js
+const AuthContext = createContext();
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  ...
+  return <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>;
+};
+```
 
-\begin{enumerate}
-    \item Use of \textbf{Context API} for authentication.
-    \item Component-based UI design in React.
-    \item Custom logic for scientific modeling (caffeine decay).
-    \item Firebase integration for real-time backend services.
-    \item Responsive UI/UX design with semantic CSS.
-\end{enumerate}
+---
 
-\section*{Obstacles and Challenges}
+### Stats.jsx
 
-\begin{itemize}
-    \item Handling Firebase session expiration errors.
-    \item Modeling time decay calculations in real-time.
-    \item Conditional rendering based on auth state.
-    \item Initial state refactoring from prop-drilling to context.
-\end{itemize}
+* Retrieves coffee entries from context or database
+* Computes caffeine level using:
+```js
+const halfLife = 5; // hours
+const decay = Math.pow(0.5, timeElapsed / halfLife);
+```
+* Calls:
+  - `calculateCurrentCaffeine()`
+  - `getTopThreeCoffees()`
 
-\section*{Future Enhancements}
+---
 
-\begin{itemize}
-    \item Add support for data export (CSV).
-    \item Integrate notification alerts for overuse.
-    \item Graph-based caffeine visualizer.
-    \item Link with wearable health APIs.
-    \item Dark mode support.
-\end{itemize}
+### Utility Functions
 
-\end{document}
+* `calculateCurrentCaffeine(history)`
+* `getCaffeineAmount(coffeeType)`
+* `getTopThreeCoffees(history)`
+* `timeSinceConsumption(timestamp)`
+
+---
+
+## Conclusion
+
+The **Caffiend App** highlights real-world use of modern React practices along with Firebase for user management. By separating UI, logic, and utilities, the app is scalable, reusable, and easy to maintain.
+
+### Key Learnings
+
+1. **Context & Auth Handling**  
+   - Centralized login/logout via `AuthContext`.
+2. **Form Handling & Input Validation**  
+   - Required fields for time and coffee quantity.
+3. **Caffeine Decay Calculation**  
+   - Learned how to simulate decay based on half-life.
+4. **Component-Driven Architecture**  
+   - Organized layout with reusable functional components.
+5. **Firebase Auth & Firestore**  
+   - Integrated real-time authentication and conditional rendering.
+---
+
+## Obstacles and Challenges
+
+1. **Firebase Re-authentication Errors**  
+   - Handling expired tokens and session redirects.
+2. **Time Calculation for Caffeine Decay**  
+   - Precision of decay curve depending on current time.
+3. **Error State Handling in Forms**  
+   - Needed to provide real-time feedback on form validation.
+4. **Context Refactor**  
+   - Refactored from prop-drilling to context API to simplify authentication flow.
+
+---
+
+## Future Enhancements
+
+- Add user-specific history with Firestore
+- Graph-based caffeine decay chart
+- Export caffeine logs as CSV
+- Integrate wearable/health API for intake suggestions
+- Notifications for overconsumption
