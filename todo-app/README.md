@@ -57,9 +57,6 @@ npm run dev
 ```
 ---
 
-
----
-
 ### Project Structure
 ```
 todo-app/
