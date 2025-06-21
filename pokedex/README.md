@@ -1,5 +1,7 @@
 # Pokedex React App - Project Overview
 
+[🌐 Live Demo](https://your-live-demo-link.com) • [📂 GitHub Repo](https://github.com/your-repo/pokedex)
+
 ## Introduction
 
 **Pokedex** is a modern React-based application that allows users to explore Pokémon data interactively. Utilizing **React**, **Vite.js**, and the **PokeAPI**, this app demonstrates core frontend concepts like state management, API integration, and localStorage caching for performance.
@@ -53,8 +55,6 @@ npm run dev
 
 ---
 
-
----
 
 ### Project Structure
 
