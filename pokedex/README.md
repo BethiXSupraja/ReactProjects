@@ -144,7 +144,7 @@ useEffect(() => {
 
 ---
 
-### 💾 LocalStorage (Data Persistence)
+### LocalStorage (Data Persistence)
 
 - Caches Pokémon data (`pokedex`)
 - Caches move detail data (`pokemon-moves`)
@@ -152,7 +152,7 @@ useEffect(() => {
 
 ---
 
-### 🧠 App.jsx
+### App.jsx
 
 **Purpose:**  
 Main app layout that controls routing and core app state.
@@ -163,7 +163,7 @@ Main app layout that controls routing and core app state.
 
 ---
 
-### 🧭 SideNav.jsx
+### SideNav.jsx
 
 **Purpose:**  
 Side navigation to select and search Pokémon.
@@ -174,26 +174,33 @@ Side navigation to select and search Pokémon.
 
 ---
 
-### 📛 Header.jsx
+### Header.jsx
 
-**Purpose:**  
-App header with brand and nav toggle for mobile.
-
----
-
-### 🐾 PokeCard.jsx
-
-**Purpose:**  
-Displays selected Pokémon details.
+**Purpose:**
+Displays the app name and hamburger menu button.
 
 **Key Concepts:**
-- Shows name, image, stats, types
-- Renders list of moves
-- Triggers modal on move click
+* Simple header component
+* Toggles nav menu on small screens
 
 ---
 
-### 💬 Modal.jsx
+### PokeCard.jsx
+
+**Purpose:**
+Displays the selected Pokémon with:
+* Name, types, stats, images
+* Moves (which can open a modal with descriptions)
+
+**Key Concepts:**
+* Loads data from API or cache
+* Loads move details in modal
+* Renders type cards and stats
+
+
+---
+
+### Modal.jsx
 
 **Purpose:**  
 Handles display of detailed move information.
@@ -204,7 +211,7 @@ Handles display of detailed move information.
 
 ---
 
-### 🔠 TypeCard.jsx
+### TypeCard.jsx
 
 **Purpose:**  
 Displays a colored label for Pokémon types (fire, water, etc.).
@@ -215,7 +222,7 @@ Displays a colored label for Pokémon types (fire, water, etc.).
 
 ---
 
-### 🧰 Utils (index.js)
+### Utils (index.js)
 
 **Functions:**
 - `getPokedexNumber(index)` → Converts to integer ID
@@ -233,16 +240,12 @@ The **Pokedex React App** provides a clean, interactive interface for browsing P
 
 1. **Component Architecture**  
    - Split app logic into clean, focused components.
-
 2. **Hooks & Side Effects**  
    - Efficient state updates with `useState` & `useEffect`
-
 3. **Persistent Caching**  
    - Improved UX by reducing redundant network calls.
-
 4. **Modal Portals**  
    - Integrated reusable modals using React Portals.
-
 5. **Data-Driven UI**  
    - Created dynamic components based on API data.
 
