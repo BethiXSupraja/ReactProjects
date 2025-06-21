@@ -1,6 +1,6 @@
 # Pokedex React App - Project Overview
 
-[🌐 Live Demo](https://your-live-demo-link.com) • [📂 GitHub Repo](https://github.com/your-repo/pokedex)
+[🌐 Live Demo](https://pokedex-app-8d1a36.netlify.app/) • [📂 GitHub Repo](https://github.com/BethiXSupraja/ReactProjects/edit/main/pokedex)
 
 ## Introduction
 
