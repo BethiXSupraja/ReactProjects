@@ -5,8 +5,6 @@
 **React** is a JavaScript framework used predominantly to develop dynamic web apps. React works primarily with JavaScript and then HTML and CSS. This project uses **Vite.js** to initialize and build the React app.
 A dynamic and responsive Todo List application built with **React** and **Vite.js**. This project demonstrates modern web development practices using reusable components, state management, and local storage for data persistence.
 
-![Todo List Demo](https://user-images.githubusercontent.com/demo.gif) <!-- Replace with real gif/image if available -->
-
 ---
 ## 🎯 Project Objective
 
@@ -20,31 +18,31 @@ The goal of this project is to explore **modern front-end development** practice
 ---
 
 ##  Features
- **Add New Tasks**  
+**Add New Tasks**  
 Write your thoughts down with an easy-to-use input field.
 
-📁 **Tab-Based Filtering**  
+**Tab-Based Filtering**  
 Switch between:
 - `Open`: tasks yet to be completed
 - `Completed`: tasks you've checked off
 - `All`: full task history
 
-🗑️ **Delete Functionality**  
+**Delete Functionality**  
 Remove tasks you no longer need, instantly.
 
-✅ **Mark as Complete**  
+**Mark as Complete**  
 A single click toggles a task’s completion status.
 
-🧠 **Stateful Components**  
+**Stateful Components**  
 Each component is state-aware and dynamically updates the UI.
 
-💾 **localStorage Sync**  
+**localStorage Sync**  
 Your tasks stay even after you close the browser.
 
-🎨 **Custom CSS Styling**  
+**Custom CSS Styling**  
 Crafted with `fanta.css` and `index.css` to ensure a clean, responsive look.
 
-📱 **Responsive Design**  
+**Responsive Design**  
 Fully usable across desktops, tablets, and mobile devices.
 
 ---
@@ -56,7 +54,9 @@ npm init vite@latest todo-app
 cd todo-app
 npm install
 npm run dev
+```
 
+```
 todo-app/
 │
 ├── node_modules/          # npm packages
@@ -83,7 +83,7 @@ todo-app/
 ├── package-lock.json      # Locked versions of npm packages
 ├── vite.config.js         # Vite configuration
 └── README.md
-# 📝 Todo List React App
+
 ```
 ---
 
