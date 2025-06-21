@@ -1,4 +1,4 @@
-# ☕ Caffiend React App - Project Overview
+# Caffiend React App - Project Overview
 
 ## Introduction
 
@@ -131,7 +131,7 @@ caffiend/
   ```
 
 ---
-### ⚛️ React Hooks Used
+### React Hooks Used
 
 **useState**  
 ```js
@@ -158,7 +158,7 @@ useEffect(() => {
 
 ---
 
-### 🔐 Firebase Integration
+### Firebase Integration
 
 **firebase.js**
 ```js
@@ -177,7 +177,7 @@ export const db = getFirestore(app);
 
 ---
 
-### 🔁 AuthContext.jsx
+### AuthContext.jsx
 
 **Purpose:**  
 Global state management for user and coffee data.
@@ -203,7 +203,7 @@ export function AuthProvider({ children }) {
 
 ---
 
-### ✏️ Authentication.jsx
+### Authentication.jsx
 
 **Purpose:**  
 Login/signup modal with form validation and context auth.
@@ -215,7 +215,7 @@ Login/signup modal with form validation and context auth.
 
 ---
 
-### ☕ CoffeeForm.jsx
+### CoffeeForm.jsx
 
 **Purpose:**  
 Allows users to log new coffee entries.
@@ -227,7 +227,7 @@ Allows users to log new coffee entries.
 
 ---
 
-### 👤 Hero.jsx
+### Hero.jsx
 
 **Purpose:**  
 Intro banner with features and caffeine trivia.
@@ -238,7 +238,7 @@ Intro banner with features and caffeine trivia.
 
 ---
 
-### 📜 History.jsx
+### History.jsx
 
 **Purpose:**  
 Displays user's coffee log from global state.
@@ -250,7 +250,7 @@ Displays user's coffee log from global state.
 
 ---
 
-### 📊 Stats.jsx
+### Stats.jsx
 
 **Purpose:**  
 Displays caffeine level, cost, top coffees, and averages.
@@ -262,7 +262,7 @@ Displays caffeine level, cost, top coffees, and averages.
 
 ---
 
-### 🧱 Layout.jsx
+### Layout.jsx
 
 **Purpose:**  
 Wraps the app with `header`, `main`, and `footer`.
@@ -274,7 +274,7 @@ Wraps the app with `header`, `main`, and `footer`.
 
 ---
 
-### 💬 Modal.jsx
+### Modal.jsx
 
 **Purpose:**  
 Reusable portal-based modal component.
