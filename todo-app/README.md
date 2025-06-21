@@ -18,31 +18,31 @@ The goal of this project is to explore **modern front-end development** practice
 ---
 
 ##  Features
-###Add New Tasks 
+### Add New Tasks 
 Write your thoughts down with an easy-to-use input field.
 
-###Tab-Based Filtering 
+### Tab-Based Filtering 
 Switch between:
 - `Open`: tasks yet to be completed
 - `Completed`: tasks you've checked off
 - `All`: full task history
 
-###Delete Functionality
+### Delete Functionality
 Remove tasks you no longer need, instantly.
 
-###Mark as Complete  
+### Mark as Complete  
 A single click toggles a task’s completion status.
 
-###Stateful Components 
+### Stateful Components 
 Each component is state-aware and dynamically updates the UI.
 
-###localStorage Sync 
+### localStorage Sync 
 Your tasks stay even after you close the browser.
 
-###Custom CSS Styling  
+### Custom CSS Styling  
 Crafted with `fanta.css` and `index.css` to ensure a clean, responsive look.
 
-###Responsive Design 
+### Responsive Design 
 Fully usable across desktops, tablets, and mobile devices.
 
 ---
