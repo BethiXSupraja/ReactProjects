@@ -28,22 +28,22 @@ Switch between:
 - `All`: full task history
 
 **Delete Functionality**  
-Remove tasks you no longer need, instantly.
+- Remove tasks you no longer need, instantly.
 
 **Mark as Complete**  
--A single click toggles a task’s completion status.
+- A single click toggles a task’s completion status.
 
 **Stateful Components**  
--Each component is state-aware and dynamically updates the UI.
+- Each component is state-aware and dynamically updates the UI.
 
 **localStorage Sync**  
--Your tasks stay even after you close the browser.
+- Your tasks stay even after you close the browser.
 
 **Custom CSS Styling**  
--Crafted with `fanta.css` and `index.css` to ensure a clean, responsive look.
+- Crafted with `fanta.css` and `index.css` to ensure a clean, responsive look.
 
 **Responsive Design**  
--Fully usable across desktops, tablets, and mobile devices.
+- Fully usable across desktops, tablets, and mobile devices.
 
 ---
 
