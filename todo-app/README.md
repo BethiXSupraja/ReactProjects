@@ -55,7 +55,12 @@ cd todo-app
 npm install
 npm run dev
 ```
+---
 
+
+---
+
+### Project Structure
 ```
 todo-app/
 │
