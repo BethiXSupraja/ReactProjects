@@ -56,7 +56,7 @@ npm run dev
 
 ---
 
-### 📁 Project Structure
+### Project Structure
 
 ```
 pokedex/
@@ -115,7 +115,7 @@ pokedex/
 
 ---
 
-### ⚛️ React Hooks Used
+### React Hooks Used
 
 **useState**  
 ```js
