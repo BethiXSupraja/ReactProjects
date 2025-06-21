@@ -1,5 +1,7 @@
 # Caffiend React App - Project Overview
 
+[🌐 Live Demo](https://caffiend-app-c78dfb6.netlify.app/) • [📂 GitHub Repo](https://github.com/BethiXSupraja/ReactProjects/tree/main/caffiend)
+
 ## Introduction
 
 **Caffiend** is a caffeine tracking application that helps users monitor their coffee consumption. Built using **React**, **Firebase**, and **custom utilities**, the app enables authentication, entry of coffee intake data, and real-time stats on caffeine levels based on scientifically modeled half-life decay.
@@ -54,7 +56,12 @@ cd caffiend
 npm install
 npm run dev
 ```
+---
 
+
+---
+
+### Project Structure
 ```
 caffiend/
 ├── node_modules/
